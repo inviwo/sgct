@@ -267,6 +267,8 @@ endif ()
 
 if (SGCT_INSTALL)
   include(GNUInstallDirs)
+  include(CMakePackageConfigHelpers)
+  
   install(TARGETS sgct EXPORT sgctTargets 
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -279,8 +281,14 @@ if (SGCT_INSTALL)
     NAMESPACE sgct:: 
     DESTINATION ${CMAKE_INSTALL_DATADIR}/sgct
   )
+
+  configure_package_config_file(${PROJECT_SOURCE_DIR}/support/cmake/sgctConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/cmake/sgctConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_DATADIR}/sgct
+  )
+
   install(
-      FILES ${PROJECT_SOURCE_DIR}/support/cmake/sgctConfig.cmake
+      FILES ${CMAKE_CURRENT_BINARY_DIR}/cmake/sgctConfig.cmake
       DESTINATION ${CMAKE_INSTALL_DATADIR}/sgct
   )
 endif ()

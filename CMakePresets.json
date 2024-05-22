@@ -5,7 +5,7 @@
     {
       "name": "vcpkg",
       "hidden" : true,
-      "toolchainFile": "C:/Users/petst55.AD/source/repos/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "toolchainFile": "C:/Users/petst55.AD/Projects/vcpkg/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
         "VCPKG_MANIFEST_FEATURES" : "freetype;tracy",
         "SGCT_FREETYPE_SUPPORT": {"type": "BOOL", "value":"ON"},
