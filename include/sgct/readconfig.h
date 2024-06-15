@@ -16,18 +16,18 @@
 
 namespace sgct {
 
-SGCT_EXPORT [[nodiscard]] config::Cluster readConfig(
+[[nodiscard]] SGCT_EXPORT config::Cluster readConfig(
     const std::filesystem::path& filename, const std::string& additionalError = "");
 
-SGCT_EXPORT [[nodiscard]] config::Cluster readJsonConfig(std::string_view configuration);
+[[nodiscard]] SGCT_EXPORT config::Cluster readJsonConfig(std::string_view configuration);
 
-SGCT_EXPORT [[nodiscard]] config::GeneratorVersion readJsonGeneratorVersion(
+[[nodiscard]] SGCT_EXPORT config::GeneratorVersion readJsonGeneratorVersion(
     const std::filesystem::path& configuration);
 
-SGCT_EXPORT [[nodiscard]] config::GeneratorVersion readConfigGenerator(
+[[nodiscard]] SGCT_EXPORT config::GeneratorVersion readConfigGenerator(
     const std::filesystem::path& filename);
 
-SGCT_EXPORT [[nodiscard]] std::string serializeConfig(const config::Cluster& cluster,
+[[nodiscard]] SGCT_EXPORT std::string serializeConfig(const config::Cluster& cluster,
     std::optional<config::GeneratorVersion> genVersion = std::nullopt);
 
 SGCT_EXPORT bool loadFileAndSchemaThenValidate(const std::filesystem::path& config,
@@ -46,7 +46,7 @@ SGCT_EXPORT bool validateConfigAgainstSchema(const std::string& stringifiedConfi
  * non-critical, and is composed of only strings (blank by default), a Meta object is
  * always returned even if the source file does not contain any meta information.
  */
-SGCT_EXPORT [[nodiscard]] sgct::config::Meta readMeta(
+[[nodiscard]] SGCT_EXPORT sgct::config::Meta readMeta(
     const std::filesystem::path& filename);
 
 } // namespace sgct
