@@ -27,6 +27,9 @@ if(@SGCT_TRACY_SUPPORT@)
 endif()
 find_dependency(ZLIB REQUIRED)
 
+if(TARGET ZLIB::ZLIBSTATIC AND NOT TARGET ZLIB::ZLIB)
+  add_library(ZLIB::ZLIB ALIAS ZLIB::ZLIBSTATIC)
+endif()
 
 if (NOT TARGET sgct_stb)
   add_library(sgct_stb INTERFACE IMPORTED GLOBAL)
