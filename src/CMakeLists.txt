@@ -216,6 +216,10 @@ if (SGCT_VRPN_SUPPORT)
   find_package(vrpn REQUIRED)
 endif ()
 
+if(TARGET ZLIB::ZLIBSTATIC AND NOT TARGET ZLIB::ZLIB)
+  add_library(ZLIB::ZLIB ALIAS ZLIB::ZLIBSTATIC)
+endif()
+
 target_link_libraries(sgct
   PUBLIC
     glad::glad
